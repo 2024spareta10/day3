@@ -11,7 +11,16 @@
  * @returns {Promise<any>} - 먼저 완료된 Promise의 결과를 반환하는 Promise
  */
 
-async function timeOut(promise, ms) {}
+async function timeOut(promise, ms) {
+    var status = () => setTimeout(promise(), ms);
+    console.log(status);
+}
+
+const promise = new Promise((resolve) =>
+    setTimeout(() => resolve("성공"), 100)
+);
+const timeoutPromise = timeOut(promise, 200);
+timeoutPromise();
 
 // export를 수정하지 마세요.
 export { timeOut };

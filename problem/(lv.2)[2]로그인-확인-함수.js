@@ -10,7 +10,30 @@
  */
 
 // TODO: loginRequest 함수를 작성하세요.
-async function loginRequest(id, pw) {}
+async function loginRequest(id, pw) {
+    var promise = new Promise((reslove, reject) => {
+
+        if (id === "admin" && pw === "1234") {
+            reslove();
+        }
+        else {
+            reject();
+        }
+
+    })
+        .then((reslove) => {
+            return "ok";
+        })
+        .catch((reject) => {
+            return "fail";
+        });
+    return await promise;
+}
+
+var temp = await loginRequest("admin", "1234");
+
+console.log(typeof temp);
+console.log(temp);
 
 // export를 수정하지 마세요.
 export { loginRequest };

@@ -20,7 +20,19 @@ async function fetchUsers() {
 }
 
 // TODO: getUsers 함수를 작성하세요.
-async function getUsers() {}
+async function getUsers() {
+  var res = await fetchUsers();
+  var arr = res.map(obj => {
+    for(const key in obj){
+      if(key === "name"){
+        return obj[key];
+      }
+    }
+  });
+  return arr;
+}
+
+getUsers();
 
 // export를 수정하지 마세요.
 export { getUsers };
